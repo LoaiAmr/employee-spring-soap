@@ -2,19 +2,39 @@ package com.training.employeespringsoap.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+@Entity
 public class Company {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int companyId;
 
+	@NotNull(message = "Company Name Must Be Not Null")
+	@Size(min = 1)
+	@Column
 	private String companyName;
 
+	@NotNull(message = "Owner Name Must Be Not Null")
+	@Size(min = 1)
+	@Column
 	private String ownerName;
 
+	@OneToMany(cascade = CascadeType.REMOVE)
 	private List<Employee> employee;
 
 	public Company() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getCompanyId() {
@@ -51,8 +71,7 @@ public class Company {
 
 	@Override
 	public String toString() {
-		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", ownerName=" + ownerName
-				+ "]";
+		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", ownerName=" + ownerName + "]";
 	}
 
 }

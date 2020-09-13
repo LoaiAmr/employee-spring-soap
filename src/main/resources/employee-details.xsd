@@ -14,6 +14,16 @@
 		</xs:complexType>
 	</xs:element>
 
+	<xs:element name="EmployeePostRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="empId" type="xs:long" />
+				<xs:element name="username" type="xs:string" />
+				<xs:element name="email" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
 	<xs:element name="EmployeeDetailsResponse">
 		<xs:complexType>
 			<xs:sequence>
@@ -30,7 +40,7 @@
 			<xs:element name="email" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<!-- Company Element -->
 	<xs:element name="CompanyDetailsRequest">
 		<xs:complexType>
@@ -54,7 +64,8 @@
 			<xs:element name="companyId" type="xs:int" />
 			<xs:element name="companyName" type="xs:string" />
 			<xs:element name="ownerName" type="xs:string" />
-			<xs:element name="EmployeeDetails" type="tns:EmployeeDetails"  minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="EmployeeDetails"
+				type="tns:EmployeeDetails" minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
 

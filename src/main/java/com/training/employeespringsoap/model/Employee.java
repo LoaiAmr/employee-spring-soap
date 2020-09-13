@@ -1,29 +1,40 @@
 package com.training.employeespringsoap.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Employee {
 
-	private int empId;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long empId;
+	
+	@Column
 	private String username;
 
+	@Column
 	private String email;
 
 	public Employee() {
 		super();
 	}
 
-	public Employee(int empId, String username, String email) {
+	public Employee(Long empId, String username, String email) {
 		super();
 		this.empId = empId;
 		this.username = username;
 		this.email = email;
 	}
 
-	public int getEmpId() {
+	public Long getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(int empId) {
+	public void setEmpId(Long empId) {
 		this.empId = empId;
 	}
 
